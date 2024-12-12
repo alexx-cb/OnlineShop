@@ -1,14 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koal's Shop</title>
-    <script src="tiendaOnline.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Ropa</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="tiendaOnline.js"></script>
 </head>
 <body>
+  <div class="contenedorPrincipal">
     
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="header-icons">
+          <a href="#" class="login">Login / Registro</a>
+          <a href="#" class="cart">Carrito</a>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Zapatos</a></li>
+          <li><a href="#">Chaquetas</a></li>
+          <li><a href="#">Accesorios</a></li>
+        </ul>
+      </nav>
+    </header>
 
+    <!-- Sección Home -->
+    <section class="home">
+      <figure class="homeImagen">
+        <img src="img/inicio.jpg" alt="Fondo de moda">
+      </figure>
+      <div class="homeContenido">
+        <h2>¡Descubre nuestras novedades!</h2>
+        <p>Las últimas tendencias en moda están aquí. No te lo pierdas.</p>
+      </div>
+    </section>
+
+    <!-- Sección Hero -->
+    <section class="categorias" id="categorias">
+      <h2>Categorias</h2>
+      <div class="listaCategorias" id="listaCategorias"></div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="productos" id="productos">
+      <h2>Productos Destacados</h2>
+      <div class="listaProductos" id="listaProductos"></div>
+    </section>
+
+    <!-- Redes Sociales -->
+    <section class="follow-us">
+      <h2>Síguenos en Redes Sociales</h2>
+      <div class="social-media">
+        <img src="facebook-icon.png" alt="Facebook">
+        <img src="instagram-icon.png" alt="Instagram">
+        <img src="twitter-icon.png" alt="Twitter">
+      </div>
+      <p>¡No te pierdas nuestras ofertas!</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <!-- Ayuda -->
+        <div>
+          <h3>Ayuda</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Envíos</a></li>
+          </ul>
+        </div>
+        <!-- Nosotros -->
+        <div>
+          <h3>Nosotros</h3>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contáctanos</a></li>
+          </ul>
+        </div>
+        <!-- Legal -->
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Política de Privacidad</a></li>
+          </ul>
+        </div>
+        <!-- Métodos de Pago -->
+        <div>
+          <h3>Métodos de Pago</h3>
+          <ul>
+            <li><a href="#">Tarjeta de Crédito</a></li>
+            <li><a href="#">PayPal</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Redes Sociales -->
+      <div class="footer-social">
+        <img src="facebook-icon.png" alt="Facebook">
+        <img src="instagram-icon.png" alt="Instagram">
+        <img src="twitter-icon.png" alt="Twitter">
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
