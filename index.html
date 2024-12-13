@@ -3,73 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda de Ropa</title>
+  <title>Koal's Shop</title>
+
   <link rel="stylesheet" href="style.css">
+
   <script src="tiendaOnline.js" defer></script>
+
+  <script src="https://kit.fontawesome.com/7fe309129d.js" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Noto+Sans+Mono:wght@434&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Cookie&family=Noto+Sans+Mono:wght@434&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Cookie&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Mono:wght@295&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+  <!--Contenedor Principal-->
   <div class="contenedorPrincipal">
+
+    <!--Rueda de cargando-->
     <div class="cargando">
       <img src="https://i.gifer.com/ZKZg.gif" alt="Cargando...">
     </div>
 
-    <!-- Header -->
     <header>
       <div class="header-top">
-        <img src="logo.png" alt="Logo Tienda" class="logo">
+        <p id="logo" class="bruno-ace-sc-regular">KOAL'S Shop</p>
+        <!-- Barra de navegación -->
+        <nav>
+          <ul class="navbar-links">
+            <li class="bruno-ace-sc-regular"><a href="#home">Inicio</a></li>
+            <li class="bruno-ace-sc-regular"><a href="#categorias">Categorías</a></li>
+            <li class="bruno-ace-sc-regular"><a href="#productos">Productos</a></li>
+            <li class="bruno-ace-sc-regular"><a href="#redes">Redes Sociales</a></li>
+          </ul>
+        </nav>
+        <!-- Iconos de usuario y carrito -->
         <div class="header-icons">
-          <a href="#" class="login">Login / Registro</a>
+          <div class="user">
+            <i class="fa-solid fa-user"></i>
+          </div>
           <div class="carrito">
-            <button id="btnCarrito" aria-label="Ver carrito"><i class="fa-solid fa-cart-shopping"></i> <span id="carritoCount">(0)</span></button>
+            <i class="fa-solid fa-cart-shopping" id="btnCarrito"></i>
           </div>
         </div>
       </div>
+      <!-- Menú hamburguesa -->
+      <div class="hamburguesa">
+        <i class="fa-solid fa-bars" id="hamburguesa"></i>
+      </div>
     </header>
+    
+    <!-- Fondo oscuro para bloquear la interacción -->
+    <div class="fondoOscuro"></div>
 
     <!-- Sección Home -->
-    <section class="home">
+    <section class="home" id="home">
       <figure class="homeImagen">
-        <img src="img/inicio.jpg" alt="Fondo de moda en la tienda">
+        <img src="img/home.avif" alt="Fondo de moda en la tienda">
       </figure>
       <div class="homeContenido">
-        <h2>¡Descubre nuestras novedades!</h2>
-        <p>Las últimas tendencias en moda están aquí. No te lo pierdas.</p>
+        <h2 class="cookie-regular">KOAL'S SHOP</h2>
       </div>
     </section>
 
     <!-- Sección Categorías -->
     <section class="categorias" id="categorias">
-      <h2>Categorías</h2>
+      <h2 class="bruno-ace-sc-regular tituloSeccion">Categorías</h2>
       <div class="listaCategorias" id="listaCategorias"></div>
     </section>
 
     <!-- Productos Destacados -->
     <section class="productos" id="productos">
-      <h2>Productos Destacados</h2>
+      <h2 class="bruno-ace-sc-regular tituloSeccion">Productos Destacados</h2>
       <div class="listaProductos" id="listaProductos"></div>
-      <button class="masProductos" id="masProductos">Más Productos</button>
     </section>
 
     <!-- Redes Sociales -->
-    <section class="follow-us">
-      <h2>Síguenos en Redes Sociales</h2>
+    <section class="follow-us" id="redes">
+      <h2 class="bruno-ace-sc-regular tituloSeccion">Síguenos en Redes Sociales</h2>
       <div class="social-media">
-        <img src="facebook-icon.png" alt="Síguenos en Facebook">
-        <img src="instagram-icon.png" alt="Síguenos en Instagram">
-        <img src="twitter-icon.png" alt="Síguenos en Twitter">
+        <a href="https://www.instagram.com/">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/?locale=es_ES">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://github.com/alexx-cb">
+          <i class="fa-brands fa-github"></i>
+        </a>
       </div>
-      <p>¡No te pierdas nuestras ofertas!</p>
     </section>
 
-    <!-- Ventana del Carrito -->
+    <!-- Ventana del Carrito (Overlay)-->
     <div id="ventanaCarrito" class="hidden"> 
-      <h2>Carrito de la compra</h2>
+      <h2 class="bruno-ace-sc-regular">Carrito de la compra</h2>
       <ul id="listadoCarrito"></ul>
       <div id="carritoResumen">
-        <p>Total: <span id="carritoTotal">0.00</span> €</p>
+        <p class="montserrat-alternates-extralight">Total: <span id="carritoTotal">0.00</span> €</p>
       </div>
-      <button id="realizarPedido">Realizar Pedido</button>
-      <button id="cerrarCarrito">Cerrar</button>
+      <button id="realizarPedido" class="montserrat-alternates-extralight">Realizar Pedido</button>
+      <button id="cerrarCarrito" class="montserrat-alternates-extralight">Cerrar</button>
     </div>
 
     <!-- Footer -->
@@ -77,42 +119,36 @@
       <div class="footer-links">
         <!-- Ayuda -->
         <div>
-          <h3>Ayuda</h3>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Envíos</a></li>
+          <h3 class="bruno-ace-sc-regular">Ayuda</h3>
+          <ul class="montserrat-alternates-extralight">
+            <li>FAQ</li>
+            <li>Envíos</li>
           </ul>
         </div>
         <!-- Nosotros -->
         <div>
-          <h3>Nosotros</h3>
-          <ul>
-            <li><a href="#">Sobre nosotros</a></li>
-            <li><a href="#">Contáctanos</a></li>
+          <h3 class="bruno-ace-sc-regular">Nosotros</h3>
+          <ul class="montserrat-alternates-extralight">
+            <li>Sobre nosotros</li>
+            <li>Contáctanos</li>
           </ul>
         </div>
         <!-- Legal -->
         <div>
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="#">Términos y Condiciones</a></li>
-            <li><a href="#">Política de Privacidad</a></li>
+          <h3 class="bruno-ace-sc-regular">Legal</h3>
+          <ul class="montserrat-alternates-extralight">
+            <li>Términos y Condiciones</li>
+            <li>Política de Privacidad</li>
           </ul>
         </div>
         <!-- Métodos de Pago -->
         <div>
-          <h3>Métodos de Pago</h3>
-          <ul>
-            <li><a href="#">Tarjeta de Crédito</a></li>
-            <li><a href="#">PayPal</a></li>
+          <h3 class="bruno-ace-sc-regular">Métodos de Pago</h3>
+          <ul class="montserrat-alternates-extralight">
+            <li>Tarjeta de Crédito</li>
+            <li>PayPal</li>
           </ul>
         </div>
-      </div>
-      <!-- Redes Sociales -->
-      <div class="footer-social">
-        <img src="facebook-icon.png" alt="Facebook">
-        <img src="instagram-icon.png" alt="Instagram">
-        <img src="twitter-icon.png" alt="Twitter">
       </div>
     </footer>
   </div>

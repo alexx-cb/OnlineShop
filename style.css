@@ -1,3 +1,13 @@
+/* ----------- VARIALES ----------------------*/
+:root{
+  --color-principal: #f5e3ae;
+  --color-secundario: #b1ccc4;
+  --color-principal-mod: #fff5d6;
+  --color-secundario-mod: #e1e6d3;
+  --color-terciario: #4e5861;
+}
+
+
 /* ------------- Estructura base ------------- */
 * {
   margin: 0;
@@ -8,25 +18,52 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
 }
 
 .contenedorPrincipal {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  gap: 1rem;
+  grid-template-columns: 0.125fr repeat(10,1fr) 0.125fr; /* 12 columnas con las primeras y últimas más estrechas */
+  grid-auto-rows: auto;
+  gap: 0.75rem;
   padding: 1rem;
 }
 
+.tituloSeccion {
+  font-size: 3rem;
+}
+
+/* ------------- FUENTES WEB --------------- */
+/*Home*/
+.cookie-regular {
+  font-family: "Cookie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*Titulos*/
+.bruno-ace-sc-regular {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*Parrafos*/
+.montserrat-alternates-extralight {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 /* ------------- Header ------------- */
 header {
   grid-column: 1 / -1;
-  background-color: #333;
-  color: white;
+  background-color: var(--color-terciario);
+  color: var(--color-principal);
   border-radius: 12px;
   position: sticky;
+  top: 0; /* Fijar en la parte superior */
+  z-index: 1000; /* Asegura que el header quede sobre otros elementos */
 }
 
 /* Cabecera superior */
@@ -36,35 +73,73 @@ header {
   align-items: center;
   padding: 1rem;
   position: sticky;
+  top: 0;
+  width: 100%;
 }
 
-.logo {
-  width: 120px;
+/* Logo */
+#logo {
+  font-size: 2rem;
 }
 
-.header-icons a {
-  color: white;
+/* Barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* Para tomar el espacio disponible entre el logo y los íconos */
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links li a {
+  color: var(--color-principal);
   text-decoration: none;
-  margin: 0 1rem;
+  font-size: 1.1rem;
   transition: color 0.3s;
 }
 
-.header-icons a:hover {
-  color: #00bcd4;
+.navbar-links li a:hover {
+  color: var(--color-secundario);
 }
 
+/* Iconos de usuario y carrito */
+.header-icons {
+  display: flex;
+  gap: 2rem;
+  font-size: 2rem;
+  padding-right: 1rem;
+}
+
+/* Estilo del icono del menú hamburguesa */
+.hamburguesa {
+  display: none;
+  cursor: pointer;
+  color: var(--color-principal-mod);
+  font-size: 2rem;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
 
 /* ------------- Sección Home (con imagen de fondo) ------------- */
 .home {
   display: grid;
   place-items: center;
-  color: white;
+  grid-row: 2 / 4;
+  color: var(--color-principal-mod);
   text-align: center;
   padding: 15rem 1rem;
   border-radius: 8px;
   position: relative;
+  grid-column: 2 / 12; 
+  grid-row: 2 / 4; 
 }
 
+/*Imagen de fondo*/
 .homeImagen {
   position: absolute;
   top: 0;
@@ -81,17 +156,23 @@ header {
   border-radius: 8px;
 }
 
+/*Contenido encima de la imagen*/
 .homeContenido {
   background: rgba(0, 0, 0, 0.5);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
+  display: flex; /* Uso de Flexbox dentro de esta sección */
+  flex-direction: column; /* Organiza el contenido verticalmente */
+  justify-content: center;
+  align-items: center;
+  width: 70%;
 }
 
 .homeContenido h2 {
-  font-size: 2.5rem;
+  font-size: 7rem;
   margin-bottom: 1rem;
 }
 
@@ -99,23 +180,26 @@ header {
   font-size: 1.2rem;
 }
 
-/* ------------- Sección Hero ------------- */
+/* ------------- Sección Categorias ------------- */
+/*Contendedor (Seccion)*/
 .categorias {
-  grid-column: 1 / -1;
+  grid-column: 2 / 12; /* Ocupa desde la segunda columna hasta la penúltima (deja espacio en los bordes) */
+  grid-row: 4 / 6; /* Ocupa la fila 4 hasta la 6, puedes ajustar según lo necesites */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
-  background-color: #f4f4f4;
+  background-color: var(--color-principal-mod);
   border-radius: 8px;
 }
 
-.categorias h1 {
-  font-size: 2.8rem;
+.categorias h3 {
+  font-size: 1.7rem;
   margin-bottom: 1.5rem;
 }
 
+/*Lista en donde se almacenan*/
 .listaCategorias {
   display: flex;
   justify-content: space-around;
@@ -130,8 +214,8 @@ header {
 }
 
 .contenedorCategoria img {
-  width: 200px;
-  height: 200px;
+  width: 20rem; 
+  height: 20rem; 
   object-fit: cover;
   margin-bottom: 1rem;
   border-radius: 50%;
@@ -146,10 +230,13 @@ header {
 
 /* ------------- Sección Productos ------------- */
 .productos {
-  grid-column: 1 / -1;
+  grid-column: 2 / 12; /* Ocupa desde la segunda columna hasta la penúltima (deja espacio en los bordes) */
+  grid-row: 6 / 8; /* Ocupa la fila 2 hasta la 4, puedes ajustar según lo necesites */
   padding: 2rem;
-  background-color: #fff;
-  display: grid;
+  padding-bottom: 4rem; /* Agrega suficiente padding para que el botón no se superponga */
+  background-color: var(--color-principal);
+  display: flex;
+  flex-direction: column; /* Coloca los elementos de la sección en columna */
   gap: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -162,15 +249,17 @@ header {
 
 .listaProductos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de productos */
   gap: 2rem;
+  flex-grow: 1; /* Esto asegura que la lista de productos ocupe el espacio restante */
 }
 
 .itemProductos {
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-terciario);
   border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
+  background-color: var(--color-secundario-mod);
 }
 
 .itemProductos:hover {
@@ -201,13 +290,137 @@ header {
   object-fit: cover;
 }
 
+/*Boton para listar mas productos*/
 .masProductos {
-  display: flex;
-  align-content: flex-end;
+  align-self: center; /* Asegura que el botón se coloque al final */
+  padding: 1rem 2rem;
+  background-color: var(--color-terciario);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: auto; /* Empuja el botón al fondo */
+  transition: background-color 0.3s ease;
 }
 
-/* ------------- Sección Todos los Productos ------------- */
+.masProductos:hover {
+  background-color: var(--color-secundario); 
+}
 
+/* ------------- Overlay y Modal ------------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Contenedor del Modal */
+.contenedor {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto; 
+  gap: 1rem;
+  background-color: var(--color-principal);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 65%;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: scaleUp 0.3s ease;
+  text-align: center; /* Alinea el texto dentro del contenedor */
+}
+
+/* Título del producto */
+.tituloProducto {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  text-align: center; /* Alinea el título en el centro */
+}
+
+/* Precio */
+.precio {
+  color: green;
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+  text-align: center; /* Alinea el precio en el centro */
+}
+
+/* Descripción */
+.descripcion {
+  font-size: 1rem;
+  color: var(--color-terciario);
+  justify-content: center;
+  text-align: center; /* Alinea la descripción en el centro */
+}
+
+/* Contenedor de la imagen en el modal */
+.contenedorImagenOverlay {
+  width: 100%; /* Hizo más flexible la imagen para ajustarse al tamaño del modal */
+  height: auto;
+  max-width: 40%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+}
+
+.contenedorImagenOverlay img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Botón cerrar modal */
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-terciario);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cerrar:hover {
+  background: var(--color-secundario);
+}
+
+/* Botón agregar al carrito */
+.agregar {
+  background: var(--color-terciario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+  margin-top: 1rem; /* Agregado espacio entre botones */
+}
+
+.agregar:hover {
+  background: var(--color-secundario);
+}
+
+/* ------------- Sección Para listar por categorias ------------- */
 .overlayProductos {
   position: fixed;
   top: 0;
@@ -227,9 +440,9 @@ header {
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); /* Cada producto ocupará un 30% del ancho */
   gap: 2rem; /* Mayor espacio entre los productos */
   width: 100%;
-  max-height: 100%; /* Asegura que el contenedor no ocupe más del 90% de la altura de la pantalla */
+  max-height: 90%; /* Limita la altura del contenedor para que no ocupe toda la pantalla */
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--color-principal);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
@@ -241,9 +454,9 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-terciario);
   border-radius: 8px;
-  background-color: #fff;
+  background-color: var(--color-secundario);
   transition: transform 0.3s, box-shadow 0.3s;
   width: 100%; /* Se asegura de que ocupe el 100% de su contenedor */
   height: auto; /* La altura se ajusta al contenido */
@@ -251,7 +464,11 @@ header {
   overflow: hidden; /* Si el contenido excede, se oculta */
 }
 
-.vistaItemProducto h3, p {
+.vistaItemProducto h3 {
+  padding: 0.75rem;
+}
+
+.vistaItemProducto p {
   padding: 0.75rem;
 }
 
@@ -292,7 +509,7 @@ header {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: #ff5c5c;
+  background: var(--color-terciario);
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -300,213 +517,168 @@ header {
   cursor: pointer;
   font-size: 1.2rem;
   transition: background 0.3s ease;
+  z-index: 1000;
 }
 
 .vistaCerrar:hover {
-  background: #ff3b3b;
+  background: var(--color-secundario);
 }
 
-/* ------------- Overlay y Modal ------------- */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
-}
-
-.contenedor {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  max-width: 65%;
-  max-height: 90%;
-  overflow-y: auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-  animation: scaleUp 0.3s ease;
-}
-
-.tituloProducto {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-}
-
-.precio {
-  color: green;
-  font-size: 1.3rem;
-  margin-bottom: 0.25rem;
-}
-
-.descripcion {
-  font-size: 1rem;
-  color: #555;
-  justify-content: center;
-}
-
-.contenedorImagenOverlay {
-  width: 40%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  align-items: center;
-}
-
-.contenedorImagenOverlay img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Botón cerrar modal */
-.cerrar {
+/*Generar mas productos*/
+.masOverlay {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #ff5c5c;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.cerrar:hover {
-  background: #ff3b3b;
-}
-
-/* Botón agregar al carrito */
-.agregar {
-  background: #007bff;
+  bottom: 1rem; /* Posiciona el botón 1rem desde la parte inferior del contenedor */
+  left: 50%;
+  transform: translateX(-50%); /* Centra el botón horizontalmente */
+  background-color: var(--color-terciario); 
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 15px;
+  font-size: 1.2rem;
+  text-align: center;
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: background 0.3s ease;
+  border-radius: 10px;
+  width: auto; /* El ancho del botón es ajustable al contenido */
+  transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
-.agregar:hover {
-  background: #0056b3;
+.masOverlay:hover {
+  background-color: var(--color-secundario-mod); 
 }
 
 /* ------------- Sección Síguenos ------------- */
 .follow-us {
-  grid-column: 1 / -1;
+  grid-column: 2/12; /* Asegura que la sección ocupe toda la fila */
+  grid-row: 8/10;
   padding: 2rem;
   text-align: center;
-  background-color: #f4f4f4;
+  background-color: var(--color-principal-mod);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  justify-items: center; /* Centra los elementos dentro de la sección */
 }
 
-.social-media img {
-  width: 40px;
-  margin: 0 1rem;
-  transition: transform 0.3s;
+.social-media {
+  display: flex;
+  justify-content: center; /* Centra los iconos horizontalmente */
+  align-items: center; /* Centra los iconos verticalmente */
+  gap: 4rem;
 }
 
-.social-media img:hover {
-  transform: scale(1.2);
+.social-media i{
+  width: 3rem; /* Ancho de los iconos */
+  height: 3rem; /* Altura de los iconos */
+
 }
 
-/* Ventana del Carrito */
+.social-media a{
+  color: var(--color-terciario); 
+  font-size: 4.5rem; /* Tamaño de los iconos */
+  transition: color 0.3s; /* Transición de color al pasar el raton */
+  transition: transform 0.2s;
+}
+
+.social-media a:hover {
+  color: var(--color-secundario);
+  transform: scale(1.05); /*aumenta su tamaño*/
+}
+
+
+/*------------- CARRITO -------------------*/
 #ventanaCarrito {
   display: none;
-  background-color: #fff;
+  background-color: var(--color-principal);
   position: fixed;
-  top: 10%;
+  top: 40%; /* Mantiene el valor relativo al contenedor */
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  padding: 20px;
-  padding-top: 80px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  max-height: 80vh;
+  width: 60%; /* Usamos % para que el ancho sea relativo al contenedor */
+  padding: 1.5rem; /* 1.5rem equivale a 24px (1rem = 16px) */
+  padding-top: 5rem; /* 5rem equivale a 80px */
+  border-radius: 0.75rem; /* 0.75rem equivale a 12px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3); /* 0.25rem = 4px y 0.5rem = 8px */
+  max-height: 80vh; /* Utilizamos vh para definir el tamaño relativo a la altura de la ventana */
   overflow-y: auto;
   z-index: 1001;
   text-align: center;
+  grid-column: 2 / 12;
+  grid-row: 2 / 5;
 }
 
+/* Título del carrito */
 #ventanaCarrito h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 1.5rem; /* 1.5rem equivale a 24px */
+  margin-bottom: 1.25rem; /* 1.25rem equivale a 20px */
+  color: var(--color-terciario);
 }
 
+/* Estilo para la lista del carrito */
 #listadoCarrito {
   list-style-type: none;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; /* 1.25rem equivale a 20px */
 }
 
+/* Estilo de cada ítem en el carrito */
 #listadoCarrito li #text {
   display: flex;
-  justify-content: right;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  font-size: 18px;
-  color: #555;
+  justify-content: flex-end;
+  padding: 0.625rem; /* 0.625rem equivale a 10px */
+  border-bottom: 0.0625rem solid #ddd; /* 0.0625rem equivale a 1px */
+  font-size: 1.125rem; /* 1.125rem equivale a 18px */
+  color: var(--color-terciario);
 }
 
+/* Botones en el carrito */
 #listadoCarrito button {
-  background-color: #ea8912;
+  background-color: var(--color-terciario);
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 0.5rem 0.75rem; /* 0.5rem = 8px, 0.75rem = 12px */
+  border-radius: 0.3125rem; /* 0.3125rem equivale a 5px */
   cursor: pointer;
-  font-size: 16px;
-  margin: 5px;
+  font-size: 1rem; /* 1rem equivale a 16px */
+  margin: 0.3125rem; /* 0.3125rem equivale a 5px */
   text-align: right;
 }
 
+/* Estilo de botón hover */
 #listadoCarrito button:hover {
-  background-color: #be6c06;
+  background-color: var(--color-secundario);
 }
 
+/* Resumen del carrito */
 #carritoResumen {
-  font-size: 20px;
-  margin: 20px 0;
+  font-size: 1.25rem; /* 1.25rem equivale a 20px */
+  margin: 1.25rem 0; /* 1.25rem equivale a 20px */
 }
 
 #carritoResumen p {
-  margin: 10px 0;
+  margin: 0.625rem 0; /* 0.625rem equivale a 10px */
 }
 
 #carritoResumen span {
   font-weight: bold;
-  color: #ea8912;
+  color: var(--color-secundario);
 }
 
+/* Botón para realizar el pedido */
 #realizarPedido {
-  background-color: #ea8912;
+  background-color: var(--color-terciario);
   color: #fff;
-  padding: 10px 20px;
-  font-size: 18px;
+  padding: 0.625rem 1.25rem; /* 0.625rem = 10px, 1.25rem = 20px */
+  font-size: 1.125rem; /* 1.125rem equivale a 18px */
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem; /* 0.5rem equivale a 8px */
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 1.25rem; /* 1.25rem equivale a 20px */
 }
 
+/* Estilo de botón hover */
 #realizarPedido:hover {
-  background-color: #be6c06;
+  background-color: var(--color-secundario);
 }
 
 /* Fondo oscuro para deshabilitar interacción */
@@ -517,64 +689,54 @@ header {
 /* Cerrar ventana */
 #cerrarCarrito {
   position: absolute;
-  top: 20px; /* Aumenta el margen superior */
-  right: 20px; /* Aumenta el margen derecho */
+  top: 1.25rem; /* 1.25rem equivale a 20px */
+  right: 1.25rem; /* 1.25rem equivale a 20px */
   cursor: pointer;
-  padding: 8px 12px;
-  background-color: #ea8912;
+  padding: 0.5rem 0.75rem; /* 0.5rem = 8px, 0.75rem = 12px */
+  background-color: var(--color-terciario);
   color: white;
   border: none;
-  border-radius: 8%;
-  font-size: 16px;
+  border-radius: 10%; /* Redondea más el borde */
+  font-size: 1rem; /* 1rem equivale a 16px */
   line-height: 1;
   z-index: 1002;
 }
 
+/* Estilo de botón de cierre con hover */
 #cerrarCarrito:hover {
-  background-color: #be6c06;
+  background-color: var(--color-secundario);
 }
+
 
 /* ------------- Footer ------------- */
 footer {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Ocupa todas las columnas (de la 1 a la 12) */
+  grid-row: 10/12;
   padding: 2rem;
-  background-color: #333;
-  color: white;
+  background-color: var(--color-terciario);
+  color: var(--color-principal);
   border-radius: 8px;
+  text-align: center; /* Centra el contenido */
 }
 
+/* Contenedor de enlaces */
 .footer-links {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; /* Distribuye los elementos a lo largo del espacio disponible */
   margin-bottom: 2rem;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
 }
 
+/* Cada bloque de enlaces */
 .footer-links div {
-  width: 20%;
+  width: 20%; /* Establece el ancho de cada columna de enlaces */
+  margin-bottom: 1rem; /* Añade margen en la parte inferior para separar los bloques */
 }
 
+/* Lista de enlaces */
 .footer-links ul {
-  list-style-type: none;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #00bcd4;
-}
-
-.footer-social img {
-  width: 30px;
-  margin: 0 1rem;
-  transition: transform 0.3s;
-}
-
-.footer-social img:hover {
-  transform: scale(1.2);
+  list-style-type: none; /* Elimina los puntos de la lista */
+  padding: 0;
 }
 
 /* Imagen Cargando */
@@ -592,6 +754,21 @@ footer {
 .cargando img {
   max-width: 60px; /* Ajusta el tamaño según sea necesario */
   height: auto;
+}
+
+/* Media Queries para dispositivos más pequeños */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column; /* Los enlaces se apilan verticalmente en pantallas pequeñas */
+  }
+
+  .footer-links div {
+    width: 100%; /* Cada bloque de enlaces ocupa el 100% del ancho disponible */
+  }
+
+  .footer-social img {
+    width: 25px; /* Reduce el tamaño de las imágenes sociales en pantallas pequeñas */
+  }
 }
 
 /* ------------- Animaciones ------------- */
@@ -612,5 +789,285 @@ footer {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* Media Queries (Vista Movil)*/
+
+/* HEADER*/
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* Ocultamos los links en móviles */
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 8rem; /* Cambié el top a 6rem para que el menú esté más abajo */
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-links.active {
+    display: flex; /* Mostramos los links cuando se activa */
+  }
+
+  /* Hacemos visible el icono de la hamburguesa en móviles */
+  .hamburguesa {
+    display: block;
+  }
+
+  /* Estilo para los enlaces cuando están en modo móvil */
+  .navbar-links li a {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid #444;
+  }
+
+  .navbar-links li a:hover {
+    background-color: #00bcd4;
+    color: white;
+  }
+}
+
+/* Fondo oscuro para bloquear la interacción */
+.fondoOscuro {
+  display: none; /* No lo mostramos por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Animación para las barras del menú hamburguesa */
+.hamburguesa.active i {
+  transition: transform 0.3s;
+}
+
+/* Estilo de las barras cuando el menú está abierto */
+.hamburguesa.active .fa-bars {
+  transform: rotate(45deg);
+}
+
+/* HOME */
+@media (max-width: 768px) {
+  .home {
+    padding: 8rem 1rem; /* Reducimos el padding en móviles */
+    grid-column: 1 / -1; /* Ocupa toda la columna en pantallas pequeñas */
+    grid-row: 2 / 3; /* Ocupa solo una fila */
+  }
+
+  .homeContenido {
+    padding: 1.5rem; /* Ajustamos el padding del contenido */
+  }
+
+  .homeContenido h2 {
+    font-size: 1.8rem; /* Reducimos el tamaño del título */
+  }
+
+  .homeContenido p {
+    font-size: 1rem; /* Reducimos el tamaño del párrafo */
+  }
+}
+
+/* CATEGORIAS */
+@media (max-width: 768px) {
+  .categorias {
+    padding: 2rem 1rem; /* Reducimos el padding */
+  }
+
+  .categorias h1 {
+    font-size: 2rem; /* Reducimos el tamaño del título */
+  }
+
+  .listaCategorias {
+    display: grid; /* Cambiamos a grid en lugar de flex */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en dispositivos móviles */
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .contenedorCategoria img {
+    width: 15rem;  /* Reducimos el tamaño de las imágenes */
+    height: 15rem; /* Reducimos el tamaño de las imágenes */
+  }
+}
+
+/* PRODUCTOS */
+@media (max-width: 768px) {
+  .productos {
+    padding: 1.5rem; /* Reducimos el padding en pantallas más pequeñas */
+  }
+
+  .productos h2 {
+    font-size: 2rem; /* Reducimos el tamaño del título */
+  }
+
+  .listaProductos {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de productos en lugar de 3 */
+  }
+
+  .itemProductos h3 {
+    font-size: 1rem; /* Reducimos el tamaño del texto de los productos */
+  }
+
+  .masProductos {
+    font-size: 1rem; /* Reducimos el tamaño del botón */
+    padding: 0.8rem 1.5rem;
+  }
+
+  .imagenProductos img {
+    object-fit: contain; /* Asegura que la imagen se ajuste mejor a pantallas pequeñas */
+  }
+}
+
+/* OVERLAY */
+@media (max-width: 768px) {
+  /* Modal */
+  .contenedor {
+    max-width: 90%; /* Aumentamos el ancho máximo del modal para pantallas pequeñas */
+    padding: 1rem; /* Reducimos el padding */
+  }
+
+  /* Título del producto */
+  .tituloProducto {
+    font-size: 1.3rem; /* Reducimos el tamaño del título */
+  }
+
+  /* Precio */
+  .precio {
+    font-size: 1.1rem; /* Reducimos el tamaño del precio */
+  }
+
+  /* Descripción */
+  .descripcion {
+    font-size: 0.9rem; /* Reducimos el tamaño de la descripción */
+  }
+
+  /* Contenedor de la imagen */
+  .contenedorImagenOverlay {
+    max-width: 50%; /* La imagen será un poco más grande, pero no demasiado */
+  }
+
+  /* Botones */
+  .cerrar {
+    font-size: 0.9rem; /* Reducimos el tamaño del botón cerrar */
+    padding: 0.4rem 0.8rem;
+  }
+
+  .agregar {
+    font-size: 1rem; /* Reducimos el tamaño del botón agregar al carrito */
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* OVERLAY PRODUCTOS*/
+@media (max-width: 768px) {
+  /* Redefinimos la grilla para ocupar menos espacio */
+  .listaTodosProductos {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr)); /* Cada producto ocupará un 45% del ancho */
+    padding: 1.5rem;
+  }
+
+  /* Estilo de los productos dentro del overlay */
+  .vistaItemProducto h3 {
+    font-size: 1.4rem; /* Reducimos el tamaño del título */
+  }
+
+  .vistaItemProducto p {
+    font-size: 1.2rem; /* Reducimos el tamaño de la descripción */
+  }
+
+  /* Botón cerrar */
+  .vistaCerrar {
+    font-size: 1rem; /* Reducimos el tamaño del botón cerrar */
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Botón para ver más productos */
+  .masOverlay {
+    font-size: 1.1rem; /* Reducimos el tamaño del botón */
+    padding: 12px;
+  }
+}
+
+/* CARRITO */
+@media (max-width: 768px) {
+  /* Reducción del tamaño de la ventana del carrito */
+  #ventanaCarrito {
+    width: 95%; /* Hace que el carrito ocupe más ancho */
+    padding-top: 50px; /* Menos padding superior */
+  }
+
+  /* Título del carrito más pequeño */
+  #ventanaCarrito h2 {
+    font-size: 20px;
+  }
+
+  /* Ajustar los ítems del carrito */
+  #listadoCarrito li #text {
+    font-size: 16px; /* Reducir el tamaño de los textos */
+    padding: 8px; /* Reducir el padding */
+  }
+
+  /* Botones en el carrito más pequeños */
+  #listadoCarrito button {
+    font-size: 14px; /* Reducir tamaño de fuente */
+    padding: 6px 10px; /* Reducir padding */
+  }
+
+  /* Resumen del carrito con fuente más pequeña */
+  #carritoResumen {
+    font-size: 18px;
+  }
+
+  #carritoResumen p {
+    font-size: 14px;
+  }
+
+  /* Botón de realizar pedido más pequeño */
+  #realizarPedido {
+    font-size: 16px; /* Reducir tamaño de fuente */
+    padding: 8px 16px; /* Reducir padding */
+  }
+
+  /* Cerrar ventana más pequeño */
+  #cerrarCarrito {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+/* FOOTER */
+@media (max-width: 768px) {
+  /* Los bloques de enlaces se ajustan a un 50% de ancho para pantallas medianas */
+  .footer-links div {
+    margin-bottom: 1.5rem; /* Mayor separación entre los bloques */
+  }
+
+  /* Hacer que los enlaces ocupen una sola columna en pantallas más pequeñas */
+  .footer-links {
+    justify-content: center; /* Centrar los bloques en pantallas pequeñas */
+  }
+
+  /* Las imágenes sociales se hacen más pequeñas en pantallas medianas */
+  .footer-social img {
+    width: 25px; /* Reducir el tamaño de las imágenes sociales */
+  }
+
+  /* Ajustar el tamaño del texto del footer */
+  footer {
+    padding: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 14px; /* Reducir el tamaño de fuente de los enlaces */
   }
 }
