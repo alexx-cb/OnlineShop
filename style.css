@@ -35,6 +35,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  position: sticky;
 }
 
 .logo {
@@ -52,32 +53,6 @@ header {
   color: #00bcd4;
 }
 
-/* Barra de navegación */
-nav {
-  background-color: #222;
-  border-radius: 0px 0px 12px 12px;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  padding: 1rem;
-}
-
-nav ul li {
-  margin: 0 2rem;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: #00bcd4;
-}
 
 /* ------------- Sección Home (con imagen de fondo) ------------- */
 .home {
@@ -85,7 +60,7 @@ nav ul li a:hover {
   place-items: center;
   color: white;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 15rem 1rem;
   border-radius: 8px;
   position: relative;
 }
@@ -226,6 +201,11 @@ nav ul li a:hover {
   object-fit: cover;
 }
 
+.masProductos {
+  display: flex;
+  align-content: flex-end;
+}
+
 /* ------------- Sección Todos los Productos ------------- */
 
 .overlayProductos {
@@ -326,7 +306,6 @@ nav ul li a:hover {
   background: #ff3b3b;
 }
 
-
 /* ------------- Overlay y Modal ------------- */
 .overlay {
   position: fixed;
@@ -411,18 +390,18 @@ nav ul li a:hover {
 
 /* Botón agregar al carrito */
 .agregar {
-  background: #4caf50;
-  color: #fff;
+  background: #007bff;
+  color: white;
   border: none;
-  padding: 0.7rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
+  font-size: 1.1rem;
   transition: background 0.3s ease;
 }
 
 .agregar:hover {
-  background: #43a047;
+  background: #0056b3;
 }
 
 /* ------------- Sección Síguenos ------------- */
@@ -443,6 +422,116 @@ nav ul li a:hover {
 
 .social-media img:hover {
   transform: scale(1.2);
+}
+
+/* Ventana del Carrito */
+#ventanaCarrito {
+  display: none;
+  background-color: #fff;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 20px;
+  padding-top: 80px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 1001;
+  text-align: center;
+}
+
+#ventanaCarrito h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#listadoCarrito {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#listadoCarrito li #text {
+  display: flex;
+  justify-content: right;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  color: #555;
+}
+
+#listadoCarrito button {
+  background-color: #ea8912;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  text-align: right;
+}
+
+#listadoCarrito button:hover {
+  background-color: #be6c06;
+}
+
+#carritoResumen {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+#carritoResumen p {
+  margin: 10px 0;
+}
+
+#carritoResumen span {
+  font-weight: bold;
+  color: #ea8912;
+}
+
+#realizarPedido {
+  background-color: #ea8912;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#realizarPedido:hover {
+  background-color: #be6c06;
+}
+
+/* Fondo oscuro para deshabilitar interacción */
+#fondoOscuro.active {
+  display: block;
+}
+
+/* Cerrar ventana */
+#cerrarCarrito {
+  position: absolute;
+  top: 20px; /* Aumenta el margen superior */
+  right: 20px; /* Aumenta el margen derecho */
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: #ea8912;
+  color: white;
+  border: none;
+  border-radius: 8%;
+  font-size: 16px;
+  line-height: 1;
+  z-index: 1002;
+}
+
+#cerrarCarrito:hover {
+  background-color: #be6c06;
 }
 
 /* ------------- Footer ------------- */
@@ -486,6 +575,23 @@ footer {
 
 .footer-social img:hover {
   transform: scale(1.2);
+}
+
+/* Imagen Cargando */
+.cargando {
+  position: fixed;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Asegura que está encima de todo */
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+}
+
+.cargando img {
+  max-width: 60px; /* Ajusta el tamaño según sea necesario */
+  height: auto;
 }
 
 /* ------------- Animaciones ------------- */

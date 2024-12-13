@@ -5,34 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Ropa</title>
   <link rel="stylesheet" href="style.css">
-  <script src="tiendaOnline.js"></script>
+  <script src="tiendaOnline.js" defer></script>
 </head>
 <body>
   <div class="contenedorPrincipal">
-    
+    <div class="cargando">
+      <img src="https://i.gifer.com/ZKZg.gif" alt="Cargando...">
+    </div>
+
     <!-- Header -->
     <header>
       <div class="header-top">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" alt="Logo Tienda" class="logo">
         <div class="header-icons">
           <a href="#" class="login">Login / Registro</a>
-          <a href="#" class="cart">Carrito</a>
+          <div class="carrito">
+            <button id="btnCarrito" aria-label="Ver carrito"><i class="fa-solid fa-cart-shopping"></i> <span id="carritoCount">(0)</span></button>
+          </div>
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Zapatos</a></li>
-          <li><a href="#">Chaquetas</a></li>
-          <li><a href="#">Accesorios</a></li>
-        </ul>
-      </nav>
     </header>
 
     <!-- Sección Home -->
     <section class="home">
       <figure class="homeImagen">
-        <img src="img/inicio.jpg" alt="Fondo de moda">
+        <img src="img/inicio.jpg" alt="Fondo de moda en la tienda">
       </figure>
       <div class="homeContenido">
         <h2>¡Descubre nuestras novedades!</h2>
@@ -40,9 +37,9 @@
       </div>
     </section>
 
-    <!-- Sección Hero -->
+    <!-- Sección Categorías -->
     <section class="categorias" id="categorias">
-      <h2>Categorias</h2>
+      <h2>Categorías</h2>
       <div class="listaCategorias" id="listaCategorias"></div>
     </section>
 
@@ -50,18 +47,30 @@
     <section class="productos" id="productos">
       <h2>Productos Destacados</h2>
       <div class="listaProductos" id="listaProductos"></div>
+      <button class="masProductos" id="masProductos">Más Productos</button>
     </section>
 
     <!-- Redes Sociales -->
     <section class="follow-us">
       <h2>Síguenos en Redes Sociales</h2>
       <div class="social-media">
-        <img src="facebook-icon.png" alt="Facebook">
-        <img src="instagram-icon.png" alt="Instagram">
-        <img src="twitter-icon.png" alt="Twitter">
+        <img src="facebook-icon.png" alt="Síguenos en Facebook">
+        <img src="instagram-icon.png" alt="Síguenos en Instagram">
+        <img src="twitter-icon.png" alt="Síguenos en Twitter">
       </div>
       <p>¡No te pierdas nuestras ofertas!</p>
     </section>
+
+    <!-- Ventana del Carrito -->
+    <div id="ventanaCarrito" class="hidden"> 
+      <h2>Carrito de la compra</h2>
+      <ul id="listadoCarrito"></ul>
+      <div id="carritoResumen">
+        <p>Total: <span id="carritoTotal">0.00</span> €</p>
+      </div>
+      <button id="realizarPedido">Realizar Pedido</button>
+      <button id="cerrarCarrito">Cerrar</button>
+    </div>
 
     <!-- Footer -->
     <footer>
